@@ -1,14 +1,19 @@
 module Tony
 
-import CSV
 export read_cities, read_properties
 
+import CSV
+
+"Test module reachability."
 hello() = print("Hello World!")
 
-cities_file = string(@__DIR__, "/../csv/cities.csv")
-properties_file = string(@__DIR__, "/../csv/properties.csv")
+const CITIES_FILE = string(@__DIR__, "/../csv/cities.csv")
+const PROPERTIES_FILE = string(@__DIR__, "/../csv/properties.csv")
 
-read_cities() = CSV.read(cities_file)
-read_properties() = CSV.read(properties_file)
+"Utility call to read cities.csv data."
+read_cities() = CSV.read(CITIES_FILE)
+
+"Utility call to read properties.csv data."
+read_properties() = CSV.read(PROPERTIES_FILE)
 
 end
