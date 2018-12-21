@@ -53,3 +53,18 @@ julia> names(cities)
 
 julia>
 ```
+
+And we can try this out with this `plot_test()` function:
+
+```julia
+function plot_test()
+    c = read_cities()
+    x = [1:size(c)[1];]
+    y = c[:population]
+    plot(x,y)
+end
+```
+
+This gives the following image:
+
+![plot_test.png](./images/plot_test.png)
