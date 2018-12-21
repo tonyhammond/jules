@@ -65,6 +65,6 @@ function plot_test()
 end
 ```
 
-This gives the following image:
+This gives the following plot for US city population distribution:
 
 ![plot_test.png](./images/plot_test.png)
