@@ -3,6 +3,16 @@
 Here's a simple import of a CSV file using the `Tony` module's exported
 `read_cities()` function.
 
+See also these couple links to the
+[DataFrames.jl](https://juliadata.github.io/DataFrames.jl/stable/index.html)
+and
+[CSV.jl](https://juliadata.github.io/CSV.jl/stable/index.html)
+documentation pages.
+
+Note that best shot for Postgres support right now seems to be [LibPQ.jl](https://github.com/invenia/LibPQ.jl) –
+a Julia wrapper for the PostgreSQL libpq C library.
+
+
 ```
 % julia --project
                _
