@@ -1,13 +1,13 @@
 module Tony
 
-export read_cities, read_properties, plot_test
-
 using Plots
 
 import CSV
 
-"Test module reachability."
-hello() = print("Hello World!")
+export read_cities, read_properties, plot_test
+
+"Simple test for `Tony` module reachability."
+hello() = print("Hello Tony!")
 
 # const CITIES_FILE = eval(@__DIR__) * "/../csv/cities.csv"
 const CITIES_FILE = string(@__DIR__, "/../csv/cities.csv")
@@ -20,6 +20,7 @@ read_cities() = CSV.read(CITIES_FILE)
 "Utility call to read properties.csv data."
 read_properties() = CSV.read(PROPERTIES_FILE)
 
+"Simple test of `Plots` module."
 function plot_test()
     c = read_cities()
     x = [1:size(c)[1];]
