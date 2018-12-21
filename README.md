@@ -1,5 +1,4 @@
-# jules
-Playground for Julia experiments
+# jules – Playground for Julia experiments
 
 Here's a simple import of a CSV file using the `Tony` module's exported
 `read_cities()` function.
