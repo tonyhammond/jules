@@ -7,7 +7,9 @@ import CSV
 "Test module reachability."
 hello() = print("Hello World!")
 
+# const CITIES_FILE = eval(@__DIR__) * "/../csv/cities.csv"
 const CITIES_FILE = string(@__DIR__, "/../csv/cities.csv")
+# const PROPERTIES_FILE = eval(@__DIR__) * "/../csv/properties.csv"
 const PROPERTIES_FILE = string(@__DIR__, "/../csv/properties.csv")
 
 "Utility call to read cities.csv data."
