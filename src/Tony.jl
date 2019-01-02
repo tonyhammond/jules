@@ -22,10 +22,18 @@ read_properties() = CSV.read(PROPERTIES_FILE)
 
 "Simple test of `Plots` module."
 function plot_test()
-    c = read_cities()
+    # read first 20 cities into a dataframe
+    c = read_cities()[1:20, :]
     x = [1:size(c)[1];]
     y = c[:population]
-    plot(x,y)
+    plot(x, y,
+        title = "US Cities",
+        xlabel = "City (ranked by size)",
+        ylabel = "Population",
+        legend = false,
+        markershape = :auto
+        )
+    savefig("images/plot_test.png")
 end
 
 end
