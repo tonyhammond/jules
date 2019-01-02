@@ -58,10 +58,17 @@ And we can try this out with this `plot_test()` function:
 
 ```julia
 function plot_test()
-    c = read_cities()    # read the CSV data
-    x = [1:size(c)[1];]  # get the row numbers
-    y = c[:population]   # get population column
-    plot(x,y)            # and plot
+    c = read_cities()[1:20, :]  # read the CSV data (and get first 20 cities)
+    x = [1:size(c)[1];]         # get the row numbers
+    y = c[:population]          # get population column
+    plot(x, y,                  # and plot
+        title = "US Cities",
+        xlabel = "City (ranked by size)",
+        ylabel = "Population",
+        legend = false,
+        markershape = :auto
+        )
+    savefig("images/plot_test.png")
 end
 ```
 
