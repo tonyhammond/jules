@@ -60,6 +60,18 @@ And we can try this out with this `plotcities()` function:
 function plotcities()
     # read cities into a dataframe
     df = cities()
+
+    # scatter plot of lat/long
+    p0 = scatter(df[:longitude], df[:latitude],
+        title = "US Cities",
+        xlabel = "Longitude",
+        ylabel = "Latitude",
+        legend = false,
+        markershape = :auto
+        )
+    savefig("images/plotcities-latlong.png")
+
+    # line plots with superposed series and layout
     c = df[1:10, :]
     d = df[2:11, :]
     p1 = plot([c[:population] d[:population]],
@@ -77,11 +89,15 @@ function plotcities()
         markershape = :auto
         )
     plot(p1,p2,layout=2,legend=false)
-    savefig("images/plotcities.png")
+    savefig("images/plotcities-layout.png")
 end
 ```
 
-This gives the following plot for US city population distribution
+This gives the following plots: a) a scatter plot of US city lat/long positions, and b) line plots for US city population distribution
 which is comprised of two subplots using the `layout` composition, and each subplot has a second series added with a simple offset just to demonstrate series superposition:
 
-![plotcities.png](./images/plotcities.png)
+### a) Lat/Long
+![plotcities-latlong.png](./images/plotcities-latlong.png)
+
+### b) Layout
+![plotcities-layout.png](./images/plotcities-layout.png)

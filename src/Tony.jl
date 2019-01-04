@@ -22,6 +22,18 @@ properties() = CSV.read(PROPERTIES_FILE)
 function plotcities()
     # read cities into a dataframe
     df = cities()
+
+    # scatter plot of lat/long
+    p0 = scatter(df[:longitude], df[:latitude],
+        title = "US Cities",
+        xlabel = "Longitude",
+        ylabel = "Latitude",
+        legend = false,
+        markershape = :auto
+        )
+    savefig("images/plotcities-latlong.png")
+
+    # line plots with superposed series and layout
     c = df[1:10, :]
     d = df[2:11, :]
     p1 = plot([c[:population] d[:population]],
@@ -39,7 +51,7 @@ function plotcities()
         markershape = :auto
         )
     plot(p1,p2,layout=2,legend=false)
-    savefig("images/plotcities.png")
+    savefig("images/plotcities-layout.png")
 end
 
 end
