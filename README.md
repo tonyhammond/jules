@@ -81,6 +81,7 @@ function plotcities()
 end
 ```
 
-This gives the following plot for US city population distribution:
+This gives the following plot for US city population distribution
+which is comprised of two subplots using the `layout` composition, and each subplot has a second series added with a simple offset just to demonstrate series superposition:
 
 ![plotcities.png](./images/plotcities.png)
