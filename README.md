@@ -27,7 +27,7 @@ a Julia wrapper for the PostgreSQL libpq C library.
 julia> using Tony
 [ Info: Recompiling stale cache file /Users/tony/.julia/compiled/v1.0/Tony/iHaKB.ji for Tony [d8886264-044d-11e9-15c8-31bd3d336b1a]
 
-julia> cities = read_cities()
+julia> cities = cities()
 3228×4 DataFrames.DataFrame
 │ Row  │ name                    │ population │ latitude │ longitude │
 │      │ Union{Missing, String}  │ Int64⍰     │ Float64⍰ │ Float64⍰  │
@@ -54,24 +54,33 @@ julia> names(cities)
 julia>
 ```
 
-And we can try this out with this `plot_test()` function:
+And we can try this out with this `plotcities()` function:
 
 ```julia
-function plot_test()
-    c = read_cities()[1:20, :]  # read the CSV data (and get first 20 cities)
-    x = [1:size(c)[1];]         # get the row numbers
-    y = c[:population]          # get population column
-    plot(x, y,                  # and plot
+function plotcities()
+    # read cities into a dataframe
+    cities = cities()
+    c = cities[1:10, :]
+    d = cities[2:11, :]
+    p1 = plot([c[:population] d[:population]],
         title = "US Cities",
         xlabel = "City (ranked by size)",
         ylabel = "Population",
         legend = false,
         markershape = :auto
         )
-    savefig("images/plot_test.png")
+    p2 = plot([d[:population] c[:population]],
+        title = "US Cities",
+        xlabel = "City (ranked by size)",
+        ylabel = "Population",
+        legend = false,
+        markershape = :auto
+        )
+    plot(p1,p2,layout=2,legend=false)
+    savefig("images/plotcities.png")
 end
 ```
 
 This gives the following plot for US city population distribution:
 
-![plot_test.png](./images/plot_test.png)
+![plotcities.png](./images/plotcities.png)
