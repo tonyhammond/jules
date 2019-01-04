@@ -1,7 +1,7 @@
 # jules – Playground for Julia experiments
 
 Here's a simple import of a CSV file using the `Tony` module's exported
-`read_cities()` function.
+`cities()` function and a test plot using the `plotcities()` function.
 
 See also these couple links to the
 [DataFrames.jl](https://juliadata.github.io/DataFrames.jl/stable/index.html)
@@ -27,7 +27,7 @@ a Julia wrapper for the PostgreSQL libpq C library.
 julia> using Tony
 [ Info: Recompiling stale cache file /Users/tony/.julia/compiled/v1.0/Tony/iHaKB.ji for Tony [d8886264-044d-11e9-15c8-31bd3d336b1a]
 
-julia> cities = cities()
+julia> cities()
 3228×4 DataFrames.DataFrame
 │ Row  │ name                    │ population │ latitude │ longitude │
 │      │ Union{Missing, String}  │ Int64⍰     │ Float64⍰ │ Float64⍰  │
@@ -44,7 +44,7 @@ julia> cities = cities()
 │ 3227 │ Benton                  │ 7096       │ 36.0345  │ -88.1013  │
 │ 3228 │ Ocean City              │ 7094       │ 39.2776  │ -74.5746  │
 
-julia> names(cities)
+julia> names(cities())
 4-element Array{Symbol,1}:
  :name      
  :population
