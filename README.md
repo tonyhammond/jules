@@ -59,9 +59,9 @@ And we can try this out with this `plotcities()` function:
 ```julia
 function plotcities()
     # read cities into a dataframe
-    cities = cities()
-    c = cities[1:10, :]
-    d = cities[2:11, :]
+    df = cities()
+    c = df[1:10, :]
+    d = df[2:11, :]
     p1 = plot([c[:population] d[:population]],
         title = "US Cities",
         xlabel = "City (ranked by size)",
