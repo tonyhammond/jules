@@ -75,7 +75,7 @@ function plotcities()
     c = df[1:10, :]
     d = df[11:20, :]
     p1 = plot([c[:population]],
-        title = "US Cities",
+        title = "US Cities (1-10)",
         xlabel = "City",
         ylabel = "Population",
         xticks=(1:10, c[:name]),
@@ -84,7 +84,7 @@ function plotcities()
         markershape = :auto
         )
     p2 = plot([d[:population]],
-        title = "US Cities",
+        title = "US Cities (11-20)",
         xlabel = "City",
         ylabel = "Population",
         xticks=(1:10, d[:name]),
