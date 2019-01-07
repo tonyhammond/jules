@@ -60,14 +60,24 @@ And we can try this out with this `plotcities()` function:
 function plotcities()
     # read cities into a dataframe
     df = cities()
-
-    # scatter plot of lat/long
-    p0 = scatter(df[:longitude], df[:latitude],
-        title = "US Cities",
-        xlabel = "Longitude",
-        ylabel = "Latitude",
+    df1 = filter(row -> row[:population] > 1000000, df)
+    df2 = filter(row -> row[:population] <= 1000000, df)
+    # scatter plot of lat/long - for df2 cities (below 1m pop.)
+    scatter(df2[:longitude], df2[:latitude],
+    title = "US Cities",
+    xlabel = "Longitude",
+    ylabel = "Latitude",
         legend = false,
-        markershape = :auto
+        markershape = :circle,
+        markercolor = :auto
+        # markersize = 4
+        )
+    # scatter plot of lat/long - for df1 cities (above 1m pop.)
+    scatter!(df1[:longitude], df1[:latitude],
+        legend = false,
+        markershape = :rect,
+        markercolor = :orange
+        # markersize = 4
         )
     savefig("images/plotcities-latlong.png")
 
