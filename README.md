@@ -60,8 +60,8 @@ And we can try this out with this `plotcities()` function:
 function plotcities()
     # read cities into a dataframe
     df = cities()
-    df1 = filter(row -> row[:population] > 1000000, df)
-    df2 = filter(row -> row[:population] <= 1000000, df)
+    df1 = filter(row -> row[:population] > 1_000_000, df)
+    df2 = filter(row -> row[:population] <= 1_000_000, df)
     # scatter plot of lat/long - for df2 cities (below 1m pop.)
     scatter(df2[:longitude], df2[:latitude],
     title = "US Cities",
@@ -91,7 +91,8 @@ function plotcities()
         xticks=(1:10, c[:name]),
         xrotation=60,
         legend = false,
-        markershape = :auto
+        markershape = :rect,
+        markercolor = :orange
         )
     p2 = plot([d[:population]],
         title = "US Cities (11-20)",
@@ -100,7 +101,8 @@ function plotcities()
         xticks=(1:10, d[:name]),
         xrotation=60,
         legend = false,
-        markershape = :auto
+        markershape = :auto,
+        markercolor = :auto
         )
     plot(p1,p2,layout=2,legend=false)
     savefig("images/plotcities-layout.png")
