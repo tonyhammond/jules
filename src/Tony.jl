@@ -35,18 +35,22 @@ function plotcities()
 
     # line plots with superposed series and layout
     c = df[1:10, :]
-    d = df[2:11, :]
-    p1 = plot([c[:population] d[:population]],
+    d = df[11:20, :]
+    p1 = plot([c[:population]],
         title = "US Cities",
-        xlabel = "City (ranked by size)",
+        xlabel = "City",
         ylabel = "Population",
+        xticks=(1:10, c[:name]),
+        xrotation=60,
         legend = false,
         markershape = :auto
         )
-    p2 = plot([d[:population] c[:population]],
+    p2 = plot([d[:population]],
         title = "US Cities",
-        xlabel = "City (ranked by size)",
+        xlabel = "City",
         ylabel = "Population",
+        xticks=(1:10, d[:name]),
+        xrotation=60,
         legend = false,
         markershape = :auto
         )
