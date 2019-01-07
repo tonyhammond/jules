@@ -50,8 +50,8 @@ function plotcities()
         title = "US Cities (1-10)",
         xlabel = "City",
         ylabel = "Population",
-        xticks=(1:10, c[:name]),
-        xrotation=60,
+        xticks = (1:10, c[:name]),
+        xrotation = 60,
         legend = false,
         markershape = :rect,
         markercolor = :orange
@@ -60,8 +60,8 @@ function plotcities()
         title = "US Cities (11-20)",
         xlabel = "City",
         ylabel = "Population",
-        xticks=(1:10, d[:name]),
-        xrotation=60,
+        xticks = (1:10, d[:name]),
+        xrotation = 60,
         legend = false,
         markershape = :auto,
         markercolor = :auto
