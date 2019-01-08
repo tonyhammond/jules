@@ -2,4 +2,4 @@
 
 We're using this repo to manage a number of Julia packages:
 
-* [Tony.jl](../Tony.jl)
+* [Tony.jl](https://github.com/tonyhammond/Tony.jl)
