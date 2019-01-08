@@ -22,13 +22,15 @@ properties() = CSV.read(PROPERTIES_FILE)
 function plotcities()
     # read cities into a dataframe
     df = cities()
+
+    # scatter plots
     df1 = filter(row -> row[:population] > 1_000_000, df)
     df2 = filter(row -> row[:population] <= 1_000_000, df)
     # scatter plot of lat/long - for df2 cities (below 1m pop.)
-    scatter(df2[:longitude], df2[:latitude],
-    title = "US Cities",
-    xlabel = "Longitude",
-    ylabel = "Latitude",
+    p0 = scatter(df2[:longitude], df2[:latitude],
+        title = "US Cities",
+        xlabel = "Longitude",
+        ylabel = "Latitude",
         legend = false,
         markershape = :circle,
         markercolor = :auto
@@ -68,6 +70,9 @@ function plotcities()
         )
     plot(p1,p2,layout=2,legend=false)
     savefig("images/plotcities-layout.png")
+
+    plot(p0,p1,layout = (1,2),legend=false)
+    savefig("images/plotcities-test.png")
 end
 
 end
