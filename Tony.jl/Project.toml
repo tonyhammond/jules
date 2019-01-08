@@ -1,8 +1,0 @@
-name = "Tony"
-uuid = "d8886264-044d-11e9-15c8-31bd3d336b1a"
-authors = ["Tony Hammond <tony@tonyhammond.org>"]
-version = "0.1.0"
-
-[deps]
-CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
-Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
